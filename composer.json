@@ -1,0 +1,17 @@
+{
+  "name": "dangmedia/wp-cdn",
+  "type": "wordpress-plugin",
+  "license": "proprietary",
+  "config": {
+    "preferred-install": "dist",
+    "vendor-dir": "vendor"
+  },
+  "autoload": {
+    "psr-4": {
+      "DM\\WPCDN\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0"
+  }
+}

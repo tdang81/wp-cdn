@@ -1,0 +1,35 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: wordpress:4.9.8
+    links:
+      - mysql:mysql
+    ports:
+      - 18121:80
+    environment:
+      WORDPRESS_DB_PASSWORD: test123
+      ABSPATH: /usr/src/wordpress/
+    volumes:
+      - ./wordpress:/var/www/html
+      - .:/var/www/html/wp-content/plugins/wp-cdn
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: test123
+      MYSQL_DATABASE: wordpress
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    links:
+      - mysql:mysql
+    ports:
+      - 18122:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: test123
+
+volumes:
+  wordpress:
