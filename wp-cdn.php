@@ -9,11 +9,11 @@ Author URI: https://trungdang.de
 Text Domain: wp-cdn
 */
 
-use DM\WPCdn\Bootstrap;
+use DM\WpCdn\Bootstrap;
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     $loader = require_once __DIR__ . '/vendor/autoload.php';
-    $loader->addPsr4('DM\\WPCdn\\', __DIR__ . '/src/');
+    $loader->addPsr4('DM\\WpCdn\\', __DIR__ . '/src/');
 }
 
 add_action('plugins_loaded', array(Bootstrap::getInstance(), 'init'));

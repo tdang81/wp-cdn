@@ -37,6 +37,8 @@ class Bootstrap
      */
     public function init()
     {
-        echo 'WP CDN';
+        add_filter('wp_get_attachment_url', array(Replacer::getInstance(), 'replaceUrl'), 99, 1);
+        add_filter('post_thumbnail_html', array(Replacer::getInstance(), 'replaceUrl'), 99, 1);
+        add_filter('wp_get_attachment_image_src', array(Replacer::getInstance(), 'replaceUrlSrc'), 99, 1);
     }
 }
