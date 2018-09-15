@@ -39,6 +39,9 @@ class Bootstrap
     {
         add_filter('wp_get_attachment_url', array(Replacer::getInstance(), 'replaceUrl'), 99, 1);
         add_filter('post_thumbnail_html', array(Replacer::getInstance(), 'replaceUrl'), 99, 1);
+        add_filter('the_content', array(Replacer::getInstance(), 'replaceUrl'), 99, 1);
+        //add_filter('get_header_image_tag', array(Replacer::getInstance(), 'replaceUrl'), 99, 1); //theme image
+        add_filter('wp_calculate_image_srcset', array(Replacer::getInstance(), 'replaceUrlSrcSet'), 99, 1);
         add_filter('wp_get_attachment_image_src', array(Replacer::getInstance(), 'replaceUrlSrc'), 99, 1);
     }
 }
