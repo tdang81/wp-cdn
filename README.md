@@ -19,3 +19,8 @@ docker-compose stop
 
 #uninstall all
 docker-compose down -v
+
+#requirement
+this constant must be set
+
+DM_CDN_URL=<cdn-url>
