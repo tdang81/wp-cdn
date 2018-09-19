@@ -1,5 +1,5 @@
 {
-  "name": "dangmedia/wp-cdn",
+  "name": "tdang/wp-cdn",
   "type": "wordpress-plugin",
   "license": "proprietary",
   "config": {
