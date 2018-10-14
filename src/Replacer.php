@@ -38,6 +38,10 @@ class Replacer
      */
     public function replaceUrl($url)
     {
+        if (!$this->isAttachment($url)) {
+            return $url;
+        }
+
         $cdnUrl = Config::getInstance()->getCdnUrl();
 
         if (empty($cdnUrl)) {
@@ -97,5 +101,27 @@ class Replacer
         }
 
         return $images;
+    }
+
+    /**
+     * @param $url
+     * @return bool
+     */
+    protected function isAttachment($url)
+    {
+        $pos = strrpos($url, ".");
+        if ($pos === false) {
+            return false;
+        }
+
+        $ext = strtolower(trim(substr($url, $pos)));
+
+        $imgExts = array(".gif", ".jpg", ".jpeg", ".png", ".tiff", ".tif", ".pdf");
+
+        if (in_array($ext, $imgExts)) {
+            return true;
+        }
+
+        return false;
     }
 }
