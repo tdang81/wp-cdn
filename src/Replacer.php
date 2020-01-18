@@ -116,7 +116,7 @@ class Replacer
 
         $ext = strtolower(trim(substr($url, $pos)));
 
-        $imgExts = array(".gif", ".jpg", ".jpeg", ".png", ".tiff", ".tif", ".pdf");
+        $imgExts = array(".gif", ".jpg", ".jpeg", ".png", ".tiff", ".tif", ".pdf", ".svg");
 
         if (in_array($ext, $imgExts)) {
             return true;
